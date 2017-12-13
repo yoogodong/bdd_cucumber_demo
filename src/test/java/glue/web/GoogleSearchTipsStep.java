@@ -1,4 +1,4 @@
-package web;
+package glue.web;
 
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;

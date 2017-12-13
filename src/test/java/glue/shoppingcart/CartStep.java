@@ -1,4 +1,4 @@
-package shoppingcart;
+package glue.shoppingcart;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.And;

@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"classpath:features"},
         plugin = {"pretty", "html:target/cucumber-html-report"},
-        glue={"shoppingcart","web"}
+        glue={"glue"}
 )
 public class RunCukesTest {
 }
