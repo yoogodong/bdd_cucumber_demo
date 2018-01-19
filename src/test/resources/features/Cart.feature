@@ -1,7 +1,7 @@
 Feature: add a product to shopping cart
-  AS a user
-  I WANT TO  add product to  my shopping cart,
-  SO THAT I can buy it later
+  作为一个客户
+  我想要添加产品到到我的购物车
+  这样我可以在之后查看这些商品以及决定是否购买它们
   Scenario: add 1 pen
     Given a product with name "pen" and price 20
     And a shopping cart is empty

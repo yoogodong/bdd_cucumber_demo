@@ -1,5 +1,6 @@
 package glue.web;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -18,31 +19,34 @@ public class GoogleSearchTipsStep {
 
     private final WebDriver driver = new FirefoxDriver();
 
-    @Given("^I am on the Google search page$")
-    public void I_visit_google() {
+
+    @Given("^打开 Google 搜索页面$")
+    public void 打开Google搜索页面() throws Throwable {
         driver.get("https://www.google.com");
     }
 
-    @When("^I search for \"(.*)\"$")
-    public void search_for(String query) {
+    @When("^搜索 \"([^\"]*)\"$")
+    public void 搜索(String query) throws Throwable {
         WebElement element = driver.findElement(By.name("q"));
         element.sendKeys(query);
         element.submit();
     }
 
-    @Then("^the page title should start with \"(.*)\"$")
-    public void checkTitle(String top) {
-
+    @Then("^页面的标题应该是 \"([^\"]*)\"$")
+    public void 页面的标题应该是(String title) throws Throwable {
         new WebDriverWait(driver, 10).until(new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver d) {
-                return d.getTitle().toLowerCase().startsWith(top);
+                return d.getTitle().toLowerCase().startsWith(title);
             }
         });
-        assertThat(driver.getTitle().toLowerCase(), startsWith(top));
+        assertThat(driver.getTitle().toLowerCase(), startsWith(title));
     }
+
+
 
     @After()
     public void closeBrowser() {
         driver.quit();
     }
+
 }
